@@ -19,12 +19,6 @@ class Player {
         image(game.playerImage, this.x, this.y, this.width, this.height)
     }
 
-    // rotateImg() {
-    //     x += 2
-    //     translate(this.width / 2, this.height / 2)
-    //     rotate(x)
-    // }
-
     jump() {
         this.velocity = -10
     }

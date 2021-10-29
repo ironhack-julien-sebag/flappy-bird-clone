@@ -1,6 +1,6 @@
 // Variables
 const gameWidth = 800
-const gameHeight = window.innerHeight - 100
+const gameHeight = 600
 
 const game = new Game()
 
