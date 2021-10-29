@@ -2,8 +2,8 @@ class Player {
     constructor() {
         this.velocity = 0
         this.gravity = 0.2
-        this.width = 100
-        this.height = 75
+        this.width = 50
+        this.height = 38
         this.x = width / 2 - (this.width / 2)
         this.y = height / 2 - (this.height / 2)
     }
@@ -12,10 +12,20 @@ class Player {
         this.velocity += this.gravity
         this.y += this.velocity
 
-        if (this.y >= height - this.height) {
-            // reset to his starting position
-            this.y = height - this.height
+        if (this.y >= height - this.height - game.backgroundImage.height) {
+            this.y = height - this.height - game.backgroundImage.height
         }
+
         image(game.playerImage, this.x, this.y, this.width, this.height)
+    }
+
+    // rotateImg() {
+    //     x += 2
+    //     translate(this.width / 2, this.height / 2)
+    //     rotate(x)
+    // }
+
+    jump() {
+        this.velocity = -10
     }
 }

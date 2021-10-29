@@ -1,11 +1,11 @@
 class Game {
+    constructor() {
+        this.backgroundImage
+    }
+    
     setup() {
         this.player = new Player()
         this.background = new Background()
-    }
-
-    constructor() {
-        this.backgroundImage
     }
 
     preload() {
