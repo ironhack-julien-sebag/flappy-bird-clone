@@ -1,11 +1,13 @@
 class Game {
     constructor() {
         this.backgroundImage
+        this.pipeImage
     }
-    
+
     setup() {
         this.player = new Player()
         this.background = new Background()
+        this.obstacles = []
     }
 
     preload() {
@@ -18,11 +20,25 @@ class Game {
         }
 
         this.playerImage = loadImage("images/bird.png")
+
+        // Pipe
+        this.pipeImage = loadImage("images/pipe.png")
     }
 
     draw() {
         clear()
+
+        if (frameCount % 100 === 0) {
+            this.obstacles.push(new Obstacle(this.pipeImage))
+            console.log(this.obstacles)
+        }
+
+        this.obstacles.forEach(function (obstacle) {
+            obstacle.draw()
+        })
+
         this.background.draw()
+
         this.player.draw()
     }
 }
