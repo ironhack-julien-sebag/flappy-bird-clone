@@ -14,7 +14,7 @@ class Background {
 
             game.backgroundImage.x -= game.backgroundImage.speed
 
-            if (game.backgroundImage.x <= width) {
+            if (game.backgroundImage.x < -width) {
                 game.backgroundImage.x = 0
             }
         }

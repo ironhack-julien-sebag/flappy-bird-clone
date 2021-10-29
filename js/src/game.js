@@ -1,11 +1,11 @@
 class Game {
-    constructor() {
-        this.backgroundImage
+    setup() {
+        this.player = new Player()
         this.background = new Background()
     }
 
-    setup() {
-        
+    constructor() {
+        this.backgroundImage
     }
 
     preload() {
@@ -14,12 +14,15 @@ class Game {
             x: 0,
             width: 20,
             height: 38,
-            speed: 0.2,
+            speed: 0.005,
         }
+
+        this.playerImage = loadImage("images/bird.png")
     }
 
     draw() {
         clear()
         this.background.draw()
+        this.player.draw()
     }
 }
