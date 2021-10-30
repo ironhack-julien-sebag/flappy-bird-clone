@@ -19,7 +19,7 @@ class Game {
             speed: 0.005,
         }
 
-        this.playerImage = loadImage("images/bird.png")
+        this.playerImage = loadImage("images/bird.gif")
 
         // Pipe
         this.pipeImage = loadImage("images/pipe.png")
@@ -28,7 +28,7 @@ class Game {
     draw() {
         clear()
 
-        if (frameCount % 100 === 0) {
+        if (frameCount % 200 === 0) {
             this.obstacles.push(new Obstacle(this.pipeImage))
             console.log(this.obstacles)
         }

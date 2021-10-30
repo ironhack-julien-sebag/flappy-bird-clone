@@ -4,8 +4,8 @@ class Player {
         this.gravity = 0.2
         this.width = 50
         this.height = 38
-        this.x = width / 2 - (this.width / 2)
-        this.y = height / 2 - (this.height / 2)
+        this.x = width / 2 - this.width / 2
+        this.y = height / 2 - this.height / 2
     }
 
     draw() {
@@ -20,6 +20,6 @@ class Player {
     }
 
     jump() {
-        this.velocity = -10
+        this.velocity = -8
     }
 }
