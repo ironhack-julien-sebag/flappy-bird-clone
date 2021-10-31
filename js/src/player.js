@@ -12,8 +12,8 @@ class Player {
         this.velocity += this.gravity
         this.y += this.velocity
 
-        if (this.y >= height - this.height - game.backgroundImage.height) {
-            this.y = height - this.height - game.backgroundImage.height
+        if (this.y >= height - this.height - game.groundImage.height) {
+            this.y = height - this.height - game.groundImage.height
         }
 
         image(game.playerImage, this.x, this.y, this.width, this.height)
