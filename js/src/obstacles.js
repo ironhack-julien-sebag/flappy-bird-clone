@@ -38,7 +38,7 @@ class Obstacle {
             dist(obstacleX, obstacleY, playerX, playerY) < 200
         ) {
             console.log("Both good")
-            game.score ++
+            // game.score ++
         }
 
         if (playerInfo.y === obstacleY) {

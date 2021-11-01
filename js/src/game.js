@@ -10,7 +10,7 @@ class Game {
         this.ground = new Ground()
         this.background = new Background()
         this.obstacles = []
-        this.score = new Score()
+        // this.score = new Score()
     }
 
     preload() {
@@ -40,15 +40,15 @@ class Game {
         this.pipeRotated = loadImage("images/pipe-rotated.png")
     }
 
-    // score() {
-    //     this.score = 0
+    score() {
+        this.score = 0
 
-    //     fill(0, 0, 0, 1000)
-    //     textSize(this.fontSize)
-    //     text(this.score, this.x, this.y)
-    // }
+        fill(0, 0, 0, 1000)
+        textSize(this.fontSize)
+        text(this.score, this.x, this.y)
+    }
 
-    draw() {
+    draw () {
         clear()
 
         if (frameCount % 200 === 0) {
@@ -57,7 +57,7 @@ class Game {
 
         this.background.draw()
 
-         this.score.draw()
+        // this.score.draw()
 
         this.obstacles.forEach(function (obstacle) {
             obstacle.draw()
@@ -65,12 +65,12 @@ class Game {
 
         this.obstacles.filter(obstacle => {
             obstacle.collision(this.player)
-		})
+        })
 
         this.ground.draw()
 
         this.player.draw()
 
-       
+        // this.score()
     }
 }
