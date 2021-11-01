@@ -11,6 +11,7 @@ class Game {
         this.background = new Background()
         this.obstacles = []
         this.score = new Score()
+        this.gameStart = false
     }
 
     preload() {
@@ -40,27 +41,31 @@ class Game {
         this.pipeRotated = loadImage("images/pipe-rotated.png")
     }
 
-    draw () {
+    draw() {
         clear()
 
-        if (frameCount % 200 === 0) {
-            this.obstacles.push(new Obstacle(this.pipeImage, this.pipeRotated))
+        if (this.gameStart === true) {
+            if (frameCount % 200 === 0) {
+                this.obstacles.push(
+                    new Obstacle(this.pipeImage, this.pipeRotated)
+                )
+            }
+
+            this.background.draw()
+
+            this.obstacles.forEach(function (obstacle) {
+                obstacle.draw()
+            })
+
+            this.obstacles.filter(obstacle => {
+                obstacle.collision(this.player)
+            })
+
+            this.ground.draw()
+
+            this.player.draw()
+
+            this.score.draw()
         }
-
-        this.background.draw()
-
-        this.obstacles.forEach(function (obstacle) {
-            obstacle.draw()
-        })
-
-        this.obstacles.filter(obstacle => {
-            obstacle.collision(this.player)
-        })
-
-        this.ground.draw()
-
-        this.player.draw()
-
-        this.score.draw()
     }
 }
