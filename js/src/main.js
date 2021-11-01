@@ -27,28 +27,20 @@ function startGame() {
     game.gameStart = true
 }
 
-function restartGame() {
-    game.gameStart = false
-    
-
-    setTimeout(() => {
-        game.gameStart = true
-        // game.score.points = 0
-    }, 300)
-
-    game.score.points = 0
-}
-
 function keyPressed() {
     if (keyCode === 32) {
         if (game.gameStart === true) {
             game.player.jump()
+        } else {
+            startGame()
         }
-        
-        startGame()
+
+        if (game.gameLost === true) {
+            window.location.reload()
+        }
     }
 
     if (keyCode === 82) {
-        restartGame()
+        window.location.reload()
     }
 }

@@ -20,13 +20,15 @@
 ## To do 1 Nov
 
 - Rotated obstacle ✅
-- Count points
+- Count points ✅
+- Start game ✅
+- Lose game ✅
+- Restart game ✅
 
 ## To do 2 Nov
 
-- Start game
-- Lose game
-- Restart game
+- Fix text lost
+- Fix pipes
 
 ## To do 3 Nov
 
