@@ -23,33 +23,25 @@ class Obstacle {
         const playerX = playerInfo.x + playerInfo.width / 2
         const playerY = playerInfo.y + playerInfo.height / 2
 
-        const obstacleX = (this.x + this.width / 2) - (this.width / 2)
-        const obstacleY = (this.y - this.countHeight / 2) - this.countHeight / 2
-
-        // console.log(playerInfo.x)
-        // console.log(obstacleX)
-
-        if (playerX === obstacleX) {
-            console.log("Player X good")
-        }
+        const obstacleX = this.x + this.width / 2 - this.width / 2
+        const obstacleY = this.y - this.countHeight / 2 - this.countHeight / 2
 
         if (
             playerX === obstacleX &&
             dist(obstacleX, obstacleY, playerX, playerY) < 200
         ) {
-            console.log("Both good")
-            // game.score ++
-        }
-
-        if (playerInfo.y === obstacleY) {
-            console.log("Player Y")
+            game.score.points++
+        } else if (
+            playerX === obstacleX &&
+            dist(obstacleX, obstacleY, playerX, playerY) > 200
+        ) {
+            console.log("Lost")
         }
     }
 
     passed() {
-        // noFill()
-        // noStroke()
-        fill("red")
+        noFill()
+        noStroke()
         rect(
             this.x + this.width / 2,
             this.y - this.countHeight / 2,

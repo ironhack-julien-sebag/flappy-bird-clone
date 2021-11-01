@@ -1,6 +1,6 @@
 class Score {
     constructor() {
-        this.score = 0
+        this.points = 0
         this.fontSize = 40
         this.x = 20
         this.y = 50
@@ -9,6 +9,6 @@ class Score {
     draw() {
         fill(0, 0, 0, 1000)
         textSize(this.fontSize)
-        text(this.score, this.x, this.y)
+        text(this.points, this.x, this.y)
     }
 }
