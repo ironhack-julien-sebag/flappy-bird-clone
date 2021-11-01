@@ -7,7 +7,7 @@ class Game {
     setup() {
         this.player = new Player()
         this.ground = new Ground()
-        this.trees = new Trees()
+        this.background = new Backrgound()
         this.obstacles = []
     }
 
@@ -22,8 +22,8 @@ class Game {
             speed: 0.005,
         }
 
-        // Trees
-        this.treesImage = {
+        // background
+        this.backgroundImage = {
             src: loadImage("images/background.png"),
             x: 0,
             width: 400,
@@ -44,7 +44,9 @@ class Game {
             this.obstacles.push(new Obstacle(this.pipeImage))
         }
 
-        this.trees.draw()
+        this.background.draw()
+
+        // this.backgroundImage.draw()
 
         this.obstacles.forEach(function (obstacle) {
             obstacle.draw()
