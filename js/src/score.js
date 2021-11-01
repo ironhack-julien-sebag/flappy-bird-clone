@@ -8,7 +8,6 @@ class Score {
 
     draw() {
         fill(0, 0, 0, 1000)
-        textSize(this.fontSize)
         text(this.points, this.x, this.y)
     }
 }

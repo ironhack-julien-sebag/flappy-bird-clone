@@ -36,6 +36,7 @@ class Obstacle {
             dist(obstacleX, obstacleY, playerX, playerY) > 200
         ) {
             console.log("Lost")
+            game.gameStart = false
         }
     }
 

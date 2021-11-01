@@ -17,10 +17,11 @@ body {
     @include flexbox(center, center, nowrap);
     width: 100vw;
     height: 100vh;
+    font-family: "Press Start 2P", cursive;
 
     canvas {
-        background-color: #70C5CE
-    } 
+        background-color: #70c5ce;
+    }
 }
 
 /*=============================================== Components ===============================================*/

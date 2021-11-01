@@ -66,6 +66,21 @@ class Game {
             this.player.draw()
 
             this.score.draw()
+        } else if (this.gameStart === false && this.score.points > 0) {
+            const textPoints = `Your score: ${this.score.points}`
+            const textRestart = "Restart game"
+
+            text(textPoints, (width - textWidth(textPoints)) / 2, height / 2 - 30)
+
+            text(
+                textRestart,
+                (width - textWidth(textRestart)) / 2,
+                height / 2 + 30
+            )
+        } else {
+            // textSize(48)
+            const textStart = "Press space to start"
+            text(textStart, (width - textWidth(textStart)) / 2, height / 2 + 15)
         }
     }
 }
