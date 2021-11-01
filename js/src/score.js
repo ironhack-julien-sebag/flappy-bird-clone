@@ -6,13 +6,9 @@ class Score {
         this.y = 50
     }
 
-    countScore() {
+    draw() {
         fill(0, 0, 0, 1000)
         textSize(this.fontSize)
         text(this.score, this.x, this.y)
-    }
-
-    draw() {
-        this.countScore()
     }
 }

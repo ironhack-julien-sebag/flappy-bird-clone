@@ -19,7 +19,7 @@
 
 ## To do 1 Nov
 
-- Rotated obstacle
+- Rotated obstacle ✅
 - Count points
 
 ## To do 2 Nov

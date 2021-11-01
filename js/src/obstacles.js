@@ -1,35 +1,73 @@
 class Obstacle {
     constructor(image, rotatedImage) {
-        this.image = image
+        // General pipe
         this.x = width
-        this.y = random(250, 500)
-        this.yRotated = ((height - this.y) * -1) - 100
         this.width = 50
         this.height = 500
 
-        this.rotatedImage = rotatedImage
+        // Bottom pipe
+        this.image = image
+        this.y = random(250, 500)
 
+        // Top pipe
+        this.rotatedImage = rotatedImage
+        this.yRotated = (height - this.y) * -1 - 100
+
+        // Count points
         this.countHeight = 200
+        this.countX = this.x + this.width / 2
+        this.countY = this.y - this.countHeight / 2
     }
 
-    draw() {
-        this.x--
+    collision(playerInfo) {
+        const playerX = playerInfo.x + playerInfo.width / 2
+        const playerY = playerInfo.y + playerInfo.height / 2
 
-        image(this.image, this.x, this.y, this.width, this.height)
+        const obstacleX = (this.x + this.width / 2) - (this.width / 2)
+        const obstacleY = (this.y - this.countHeight / 2) - this.countHeight / 2
 
-        image(
-            this.rotatedImage,
-            this.x,
-            this.yRotated,
-            this.width,
-            this.height
-        )
-        
+        // console.log(playerInfo.x)
+        // console.log(obstacleX)
+
+        if (playerX === obstacleX) {
+            console.log("Player X good")
+        }
+
+        if (
+            playerX === obstacleX &&
+            dist(obstacleX, obstacleY, playerX, playerY) < 200
+        ) {
+            console.log("Both good")
+            game.score ++
+        }
+
+        if (playerInfo.y === obstacleY) {
+            console.log("Player Y")
+        }
+    }
+
+    passed() {
+        // noFill()
+        // noStroke()
+        fill("red")
         rect(
             this.x + this.width / 2,
             this.y - this.countHeight / 2,
             this.width,
             this.countHeight
         )
+    }
+
+    draw() {
+        this.x--
+
+        // Bottom pipe
+        image(this.image, this.x, this.y, this.width, this.height)
+
+        // Top pipe
+        image(this.rotatedImage, this.x, this.yRotated, this.width, this.height)
+
+        // Count points
+        this.passed()
     }
 }
