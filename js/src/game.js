@@ -3,6 +3,7 @@ class Game {
         this.groundImage
         this.pipeImage
         this.pipeRotatedImage
+        this.gameStarted = 0
     }
 
     setup() {
@@ -41,6 +42,12 @@ class Game {
         this.pipeRotated = loadImage("images/pipe-rotated.png")
     }
 
+    reset() {
+        // this.score.points = 0
+        this.obstacles = []
+        this.player.y = 100
+    }
+
     draw() {
         clear()
 
@@ -62,21 +69,18 @@ class Game {
             })
 
             this.ground.draw()
-
             this.player.draw()
-
             this.score.draw()
-        } else if (this.gameStart === false && this.score.points > 0) {
+            this.gameStarted++
+        } else if (this.gameStart === false && this.gameStarted > 0) {
             const textPoints = `Your score: ${this.score.points}`
             const textRestart = "Restart game"
 
             text(textPoints, (width - textWidth(textPoints)) / 2, height / 2 - 30)
 
-            text(
-                textRestart,
-                (width - textWidth(textRestart)) / 2,
-                height / 2 + 30
-            )
+            text(textRestart, (width - textWidth(textRestart)) / 2, height / 2 + 30)
+            
+            this.reset()
         } else {
             // textSize(48)
             const textStart = "Press space to start"

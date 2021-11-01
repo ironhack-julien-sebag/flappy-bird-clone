@@ -29,10 +29,14 @@ function startGame() {
 
 function restartGame() {
     game.gameStart = false
+    
 
     setTimeout(() => {
         game.gameStart = true
+        // game.score.points = 0
     }, 300)
+
+    game.score.points = 0
 }
 
 function keyPressed() {
