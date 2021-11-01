@@ -1,4 +1,4 @@
-class Backrgound {
+class Background {
     setup() {}
 
     draw() {

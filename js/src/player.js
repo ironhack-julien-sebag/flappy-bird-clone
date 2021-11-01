@@ -17,6 +17,10 @@ class Player {
         }
 
         image(game.playerImage, this.x, this.y, this.width, this.height)
+
+        if (this.y === height - this.height - game.groundImage.height) {
+            console.log("lost")
+        }
     }
 
     jump() {

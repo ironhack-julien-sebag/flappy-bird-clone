@@ -11,3 +11,23 @@
 - If touches pipes or floor => back to homescreen
 - Bird flipping 45deg when jumping of falling
 - Background moving automatically
+
+### If time left
+
+- Highest score
+- Difficulty
+
+## To do 1 Nov
+
+- Rotated obstacle
+- Count points
+
+## To do 2 Nov
+
+- Start game
+- Lose game
+- Restart game
+
+## To do 3 Nov
+
+- Rotation

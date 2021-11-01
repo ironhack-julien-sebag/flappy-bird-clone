@@ -2,13 +2,15 @@ class Game {
     constructor() {
         this.groundImage
         this.pipeImage
+        this.pipeRotatedImage
     }
 
     setup() {
         this.player = new Player()
         this.ground = new Ground()
-        this.background = new Backrgound()
+        this.background = new Background()
         this.obstacles = []
+        this.score = new Score()
     }
 
     preload() {
@@ -35,18 +37,17 @@ class Game {
 
         // Pipe
         this.pipeImage = loadImage("images/pipe.png")
+        this.pipeRotated = loadImage("images/pipe-rotated.png")
     }
 
     draw() {
         clear()
 
         if (frameCount % 200 === 0) {
-            this.obstacles.push(new Obstacle(this.pipeImage))
+            this.obstacles.push(new Obstacle(this.pipeImage, this.pipeRotated))
         }
 
         this.background.draw()
-
-        // this.backgroundImage.draw()
 
         this.obstacles.forEach(function (obstacle) {
             obstacle.draw()
@@ -55,5 +56,7 @@ class Game {
         this.ground.draw()
 
         this.player.draw()
+
+        this.score.draw()
     }
 }

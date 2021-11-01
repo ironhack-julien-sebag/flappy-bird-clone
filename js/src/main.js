@@ -11,6 +11,7 @@ function preload() {
 function setup() {
     createCanvas(gameWidth, gameHeight)
     game.setup()
+    rectMode(CENTER)
 }
 
 function draw() {
