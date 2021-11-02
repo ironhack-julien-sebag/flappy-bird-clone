@@ -4,9 +4,7 @@ class Game {
         this.pipeImage
         this.pipeRotatedImage
         this.gameStarted = false
-
-        // window.localStorage.setItem("savedGame", this.score.highestString)
-        // let savedHighest = window.localStorage.getItem("savedGame")
+        this.score = new Score()
     }
 
     setup() {
@@ -14,7 +12,7 @@ class Game {
         this.ground = new Ground()
         this.background = new Background()
         this.obstacles = []
-        this.score = new Score()
+        
         this.gameStart = false
         this.gameLost = false
     }

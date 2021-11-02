@@ -19,8 +19,17 @@ function setup() {
     textFont(font)
 }
 
+function highScore() {
+    let highest = game.score.highestPoints
+
+    window.localStorage.setItem("savedGame", highest.toString())
+
+    return window.localStorage.getItem("savedGame")
+}
+
 function draw() {
     game.draw()
+    highScore()
 }
 
 function startGame() {
@@ -44,7 +53,3 @@ function keyPressed() {
         window.location.reload()
     }
 }
-
-// window.localStorage.setItem("savedGame", )
-// let savedHighest = window.localStorage.getItem("savedGame")
-// console.log(savedHighest)
