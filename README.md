@@ -27,7 +27,7 @@
 
 ## To do 2 Nov
 
-- Fix text lost
+- Fix text lost ✅
 - Fix pipes
 
 ## To do 3 Nov

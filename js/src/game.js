@@ -72,11 +72,20 @@ class Game {
             this.background.draw()
             this.ground.draw()
             const textPoints = `Your score: ${this.score.points}`
-            const textRestart = "Press Space to restart game"
+            const textRestart = "Press Space\nto restart game"
 
-            text(textPoints, (width - textWidth(textPoints)) / 2, height / 2 - 30)
+            text(
+                textPoints,
+                width - textWidth(textPoints) - 90,
+                height / 2 + 90
+            )
 
-            text(textRestart, (width - textWidth(textRestart)) / 2, height / 2 + 30)
+            text(
+                textRestart,
+                width - textWidth(textRestart) + 250,
+                height / 2 + 150
+            )
+
             this.player.y = 100
             this.obstacles = []
 
@@ -95,7 +104,13 @@ class Game {
             const textStart = "Press space\nto start"
             textAlign(CENTER)
             text(textStart, width / 2 + 5, 450)
-            image(this.playerImage, (width - this.player.width) / 2, (height - this.player.height) / 2, this.player.width, this.player.height)
+            image(
+                this.playerImage,
+                (width - this.player.width) / 2,
+                (height - this.player.height) / 2,
+                this.player.width,
+                this.player.height
+            )
         }
     }
 }
