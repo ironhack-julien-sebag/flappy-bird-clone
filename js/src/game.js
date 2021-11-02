@@ -3,7 +3,7 @@ class Game {
         this.groundImage
         this.pipeImage
         this.pipeRotatedImage
-        this.gameStarted = 0
+        this.gameStarted = false
     }
 
     setup() {
@@ -67,8 +67,8 @@ class Game {
             this.ground.draw()
             this.player.draw()
             this.score.draw()
-            this.gameStarted++
-        } else if (this.gameStart === false && this.gameStarted > 0) {
+            this.gameStarted = true
+        } else if (this.gameStart === false && this.gameStarted === true) {
             this.background.draw()
             this.ground.draw()
             const textPoints = `Your score: ${this.score.points}`
