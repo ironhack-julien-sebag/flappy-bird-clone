@@ -29,6 +29,7 @@ function highScore() {
 
 function draw() {
     game.draw()
+
     highScore()
 }
 

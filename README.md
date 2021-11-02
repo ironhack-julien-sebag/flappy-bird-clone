@@ -14,8 +14,9 @@
 
 ### If time left
 
-- Highest score
+- Highest score ✅
 - Difficulty
+- Touch screens
 
 ## To do 1 Nov
 
@@ -28,8 +29,14 @@
 ## To do 2 Nov
 
 - Fix text lost ✅
-- Fix pipes
+- Highest score / reset score ✅
 
 ## To do 3 Nov
 
 - Rotation
+- Difficulty
+
+
+## To do 4 Nov
+
+- Touch screens

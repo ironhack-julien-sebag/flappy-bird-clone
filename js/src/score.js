@@ -8,19 +8,17 @@ class Score {
     }
 
     draw() {
-        fill(0, 0, 0, 1000)
-        textAlign(LEFT)
-        text(`Your score: ${this.points}`, this.x, this.y)
-
         // Save highest score
         if (this.points > this.highestPoints) {
             this.highestPoints = this.points
         }
-
+        
+        fill(0, 0, 0, 1000)
+        textAlign(LEFT)
         text(
-            `Highest score: ${this.highestPoints}`,
-            this.x + 5,
-            this.y + 30
+            `Your score: ${this.points}\nHighest score: ${this.highestPoints}`,
+            this.x,
+            this.y
         )
     }
 }

@@ -45,83 +45,86 @@ class Game {
         this.pipeRotated = loadImage("images/pipe-rotated.png")
     }
 
+    playing() {
+        if (frameCount % 200 === 0) {
+            this.obstacles.push(new Obstacle(this.pipeImage, this.pipeRotated))
+        }
+
+        this.background.draw()
+
+        this.obstacles.forEach(function (obstacle) {
+            obstacle.draw()
+        })
+
+        this.obstacles.filter(obstacle => {
+            obstacle.collision(this.player)
+        })
+
+        this.ground.draw()
+        this.player.draw()
+        this.score.draw()
+        this.gameStarted = true
+        document.querySelector("#resetBtn").style.display = "none"
+    }
+
+    loseScreen() {
+        this.background.draw()
+        this.ground.draw()
+        textAlign(CENTER)
+        const textPoints = `Your score: ${this.score.points}\nYour highest score: ${this.score.highestPoints}`
+        const textRestart = "Press Space\nto restart the game"
+
+        text(textPoints, width / 2, 130)
+
+        text(textRestart, width / 2, 460)
+
+        this.player.y = 100
+        this.obstacles = []
+
+        image(
+            this.playerImageDead,
+            (width - this.player.width) / 2,
+            (height - this.player.height) / 2,
+            this.player.width,
+            this.player.height
+        )
+
+        this.gameLost = true
+        document.querySelector("#resetBtn").style.display = "block"
+    }
+
+    startScreen() {
+        this.background.draw()
+        this.ground.draw()
+
+        const textStart =
+            "Press Space to start\nPress Space to jump\nPress R to restart game"
+        const textHighestScore = `Your highest score: ${this.score.highestPoints}`
+
+        textAlign(CENTER)
+
+        text(textHighestScore, width / 2, 130)
+
+        text(textStart, width / 2, 430)
+
+        image(
+            this.playerImage,
+            (width - this.player.width) / 2,
+            (height - this.player.height) / 2,
+            this.player.width,
+            this.player.height
+        )
+    }
+
     draw() {
         clear()
 
         if (this.gameStart === true) {
-            if (frameCount % 200 === 0) {
-                this.obstacles.push(
-                    new Obstacle(this.pipeImage, this.pipeRotated)
-                )
-            }
-
-            this.background.draw()
-
-            this.obstacles.forEach(function (obstacle) {
-                obstacle.draw()
-            })
-
-            this.obstacles.filter(obstacle => {
-                obstacle.collision(this.player)
-            })
-
-            this.ground.draw()
-            this.player.draw()
-            this.score.draw()
-            this.gameStarted = true
-            document.querySelector("#resetBtn").style.display = "none"
+            this.playing()
         } else if (this.gameStart === false && this.gameStarted === true) {
-            this.background.draw()
-            this.ground.draw()
-            textAlign(CENTER)
-            const textPoints = `Your score: ${this.score.points}`
-            const textHighest = `Your highest score: ${this.score.highestPoints}`
-            const textRestart = "Press Space\nto restart the game"
-
-            text(
-                textPoints,
-                width - textWidth(textPoints) - 90,
-                height / 2 - 190
-            )
-
-            text(
-                textHighest,
-                width - textWidth(textHighest) + 100,
-                height / 2 - 140
-            )
-
-            text(
-                textRestart,
-                width - textWidth(textRestart) + 340,
-                height / 2 + 150
-            )
-
-            this.player.y = 100
-            this.obstacles = []
-
-            image(
-                this.playerImageDead,
-                (width - this.player.width) / 2,
-                (height - this.player.height) / 2,
-                this.player.width,
-                this.player.height
-            )
-
-            this.gameLost = true
-            document.querySelector("#resetBtn").style.display = "block"
+            this.loseScreen()
         } else {
-            this.background.draw()
-            this.ground.draw()
-            const textStart = "Press Space\nto start\nPress R to restart game"
-            textAlign(CENTER)
-            text(textStart, width / 2 + 5, 450)
-            image(
-                this.playerImage,
-                (width - this.player.width) / 2,
-                (height - this.player.height) / 2,
-                this.player.width,
-                this.player.height
-            )
+            this.startScreen()
         }
     }
 }
