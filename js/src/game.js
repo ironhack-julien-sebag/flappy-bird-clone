@@ -71,6 +71,7 @@ class Game {
         } else if (this.gameStart === false && this.gameStarted === true) {
             this.background.draw()
             this.ground.draw()
+            textAlign(CENTER)
             const textPoints = `Your score: ${this.score.points}`
             const textRestart = "Press Space\nto restart game"
 
@@ -101,7 +102,7 @@ class Game {
         } else {
             this.background.draw()
             this.ground.draw()
-            const textStart = "Press space\nto start"
+            const textStart = "Press Space\nto start\nPress R to restart game"
             textAlign(CENTER)
             text(textStart, width / 2 + 5, 450)
             image(

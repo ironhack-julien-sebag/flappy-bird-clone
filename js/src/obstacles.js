@@ -26,9 +26,15 @@ class Obstacle {
         const obstacleX = this.x + this.width / 2 - this.width / 2
         const obstacleY = this.y - this.countHeight / 2 - this.countHeight / 2
 
-        if (playerX === obstacleX && dist(obstacleX, obstacleY, playerX, playerY) < 100) {
+        if (
+            playerX === obstacleX &&
+            dist(obstacleX, obstacleY, playerX, playerY) < 100
+        ) {
             game.score.points++
-        } else if (playerX === obstacleX && dist(obstacleX, obstacleY, playerX, playerY) > 100) {
+        } else if (
+            playerX === obstacleX &&
+            dist(obstacleX, obstacleY, playerX, playerY) > 100
+        ) {
             this.x = width
             game.gameStart = false
         }
