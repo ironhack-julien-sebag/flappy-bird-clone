@@ -21,7 +21,17 @@ body {
 
     canvas {
         background-color: #70c5ce;
+        position: relative;
+        z-index: 1;
     }
+}
+
+#resetBtn {
+    width: 200px;
+    position: absolute;
+    z-index: 10;
+    bottom: 70px;
+    cursor: pointer;
 }
 
 /*=============================================== Components ===============================================*/

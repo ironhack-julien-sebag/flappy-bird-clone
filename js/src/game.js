@@ -12,7 +12,7 @@ class Game {
         this.ground = new Ground()
         this.background = new Background()
         this.obstacles = []
-        
+
         this.gameStart = false
         this.gameLost = false
     }
@@ -69,22 +69,30 @@ class Game {
             this.player.draw()
             this.score.draw()
             this.gameStarted = true
+            document.querySelector("#resetBtn").style.display = "none"
         } else if (this.gameStart === false && this.gameStarted === true) {
             this.background.draw()
             this.ground.draw()
             textAlign(CENTER)
             const textPoints = `Your score: ${this.score.points}`
-            const textRestart = "Press Space\nto restart game"
+            const textHighest = `Your highest score: ${this.score.highestPoints}`
+            const textRestart = "Press Space\nto restart the game"
 
             text(
                 textPoints,
                 width - textWidth(textPoints) - 90,
-                height / 2 + 90
+                height / 2 - 190
+            )
+
+            text(
+                textHighest,
+                width - textWidth(textHighest) + 100,
+                height / 2 - 140
             )
 
             text(
                 textRestart,
-                width - textWidth(textRestart) + 250,
+                width - textWidth(textRestart) + 340,
                 height / 2 + 150
             )
 
@@ -100,6 +108,7 @@ class Game {
             )
 
             this.gameLost = true
+            document.querySelector("#resetBtn").style.display = "block"
         } else {
             this.background.draw()
             this.ground.draw()

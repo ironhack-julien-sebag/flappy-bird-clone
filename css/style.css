@@ -183,10 +183,21 @@ body {
           flex-wrap: nowrap;
   width: 100vw;
   height: 100vh;
+  font-family: "Press Start 2P", cursive;
 }
 
 body canvas {
-  background-color: #70C5CE;
+  background-color: #70c5ce;
+  position: relative;
+  z-index: 1;
+}
+
+#resetBtn {
+  width: 200px;
+  position: absolute;
+  z-index: 10;
+  bottom: 70px;
+  cursor: pointer;
 }
 
 /*=============================================== Components ===============================================*/

@@ -24,7 +24,7 @@ function highScore() {
 
     window.localStorage.setItem("savedGame", highest.toString())
 
-    return window.localStorage.getItem("savedGame")
+    window.localStorage.getItem("savedGame")
 }
 
 function draw() {
@@ -52,4 +52,8 @@ function keyPressed() {
     if (keyCode === 82) {
         window.location.reload()
     }
+}
+
+function clearScore() {
+    game.score.highestPoints = 0
 }
