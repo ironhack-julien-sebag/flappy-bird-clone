@@ -4,6 +4,9 @@ class Game {
         this.pipeImage
         this.pipeRotatedImage
         this.gameStarted = false
+
+        // window.localStorage.setItem("savedGame", this.score.highestString)
+        // let savedHighest = window.localStorage.getItem("savedGame")
     }
 
     setup() {

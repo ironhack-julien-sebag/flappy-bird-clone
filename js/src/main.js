@@ -44,3 +44,7 @@ function keyPressed() {
         window.location.reload()
     }
 }
+
+// window.localStorage.setItem("savedGame", )
+// let savedHighest = window.localStorage.getItem("savedGame")
+// console.log(savedHighest)

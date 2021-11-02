@@ -10,19 +10,24 @@ class Score {
     draw() {
         fill(0, 0, 0, 1000)
         textAlign(LEFT)
-        text(`Your score: ${this.points}`, this.x, this.y)
+        const stringScore = this.points.toString()
+        text(`Your score: ${stringScore}`, this.x, this.y)
 
+        // Save highest score
         if (this.points > this.highestPoints) {
             this.highestPoints = this.points
         }
-        
-        // localStorage.setItem("object", JSON.stringify({
-        //     number: this.highestPoints
-        // }))
 
-        // let highestScore = localStorage.getItem("object")
+        // We can save only strings => stringify highest score
+        let highestString = this.highestPoints.toString()
 
-        // console.log(highestScore)
+        // Save to local storage
+        window.localStorage.setItem("savedGame", highestString)
+        let savedHighest = window.localStorage.getItem("savedGame")
+
+        console.log(savedHighest)
+
+        console.log(localStorage)
 
         text(
             `Highest score:`,
