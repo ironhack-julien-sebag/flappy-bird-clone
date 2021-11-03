@@ -37,8 +37,10 @@ function startGame() {
 
 function keyPressed() {
     if (keyCode === 32) {
-        if (game.gameStart === false) {
+        if (game.gameStart === false && game.gameStarted === false) {
             startGame()
+        } else if (game.gameStart === false && game.gameStarted === true) {
+            window.location.reload()
         } else {
             game.player.jump()
         }

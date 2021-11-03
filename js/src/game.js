@@ -106,7 +106,7 @@ class Game {
         this.ground.draw()
         textAlign(CENTER)
         const textPoints = `Your score: ${this.score.points}\nYour highest score: ${this.score.highestPoints}`
-        const textRestart = "Press R\nto restart the game"
+        const textRestart = "Press R or Space\nto restart the game"
 
         text(textPoints, width / 2, 130)
 
