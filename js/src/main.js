@@ -13,23 +13,21 @@ function preload() {
 
 function setup() {
     createCanvas(gameWidth, gameHeight)
-    game.setup()
+    fill(83, 56, 70)
     rectMode(CENTER)
     textSize(24)
     textFont(font)
+    game.setup()
 }
 
 function highScore() {
     let highest = game.score.highestPoints
-
     window.localStorage.setItem("savedGame", highest.toString())
-
     window.localStorage.getItem("savedGame")
 }
 
 function draw() {
     game.draw()
-
     highScore()
 }
 
@@ -39,14 +37,10 @@ function startGame() {
 
 function keyPressed() {
     if (keyCode === 32) {
-        if (game.gameStart === true) {
-            game.player.jump()
-        } else {
+        if (game.gameStart === false) {
             startGame()
-        }
-
-        if (game.gameLost === true) {
-            window.location.reload()
+        } else {
+            game.player.jump()
         }
     }
 

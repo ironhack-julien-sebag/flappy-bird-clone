@@ -5,6 +5,7 @@ class Game {
         this.pipeRotatedImage
         this.gameStarted = false
         this.score = new Score()
+        this.frameCount = 200
     }
 
     setup() {
@@ -50,10 +51,36 @@ class Game {
         // Pipe
         this.pipeImage = loadImage("images/pipe.png")
         this.pipeRotated = loadImage("images/pipe-rotated.png")
+
+        // Starter image
+        this.starterImage = loadImage("images/start-screen.png")
+    }
+
+    startScreen() {
+        this.background.draw()
+        this.ground.draw()
+
+        image(
+            this.starterImage,
+            (width - 640) / 2,
+            (height - 440) / 2,
+            640,
+            440
+        )
+
+        text(this.score.highestPoints, 568, 135)
+
+        image(
+            this.playerImage.straight,
+            (width - this.player.width) / 2,
+            this.player.y,
+            this.player.width,
+            this.player.height
+        )
     }
 
     playing() {
-        if (frameCount % 200 === 0) {
+        if (frameCount % this.frameCount === 0) {
             this.obstacles.push(new Obstacle(this.pipeImage, this.pipeRotated))
         }
 
@@ -79,7 +106,7 @@ class Game {
         this.ground.draw()
         textAlign(CENTER)
         const textPoints = `Your score: ${this.score.points}\nYour highest score: ${this.score.highestPoints}`
-        const textRestart = "Press Space\nto restart the game"
+        const textRestart = "Press R\nto restart the game"
 
         text(textPoints, width / 2, 130)
 
@@ -98,29 +125,6 @@ class Game {
 
         this.gameLost = true
         document.querySelector("#resetBtn").style.display = "block"
-    }
-
-    startScreen() {
-        this.background.draw()
-        this.ground.draw()
-
-        const textStart =
-            "Press Space to start\nPress Space to jump\nPress R to restart game"
-        const textHighestScore = `Your highest score: ${this.score.highestPoints}`
-
-        textAlign(CENTER)
-
-        text(textHighestScore, width / 2, 130)
-
-        text(textStart, width / 2, 430)
-
-        image(
-            this.playerImage.straight,
-            (width - this.player.width) / 2,
-            (height - this.player.height) / 2,
-            this.player.width,
-            this.player.height
-        )
     }
 
     draw() {

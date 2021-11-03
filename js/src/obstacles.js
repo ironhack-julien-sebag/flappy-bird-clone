@@ -30,6 +30,7 @@ class Obstacle {
             playerX === obstacleX &&
             dist(obstacleX, obstacleY, playerX, playerY) < 100
         ) {
+            console.log(dist(obstacleX, obstacleY, playerX, playerY))
             game.score.points++
         } else if (
             playerX === obstacleX &&
