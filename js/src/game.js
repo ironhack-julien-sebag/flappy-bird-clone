@@ -37,7 +37,14 @@ class Game {
         }
 
         // Player
-        this.playerImage = loadImage("images/bird.gif")
+        this.playerImage = loadImage("images/bird-straight.gif")
+
+        this.playerImage = {
+            straight: loadImage("images/bird-straight.gif"),
+            up: loadImage("images/bird-up.gif"),
+            down: loadImage("images/bird-down.gif"),
+        }
+
         this.playerImageDead = loadImage("images/bird-dead.png")
 
         // Pipe
@@ -108,7 +115,7 @@ class Game {
         text(textStart, width / 2, 430)
 
         image(
-            this.playerImage,
+            this.playerImage.straight,
             (width - this.player.width) / 2,
             (height - this.player.height) / 2,
             this.player.width,

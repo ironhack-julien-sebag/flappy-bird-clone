@@ -3,9 +3,15 @@ class Player {
         this.velocity = 0
         this.gravity = 0.2
         this.width = 50
-        this.height = 38
+        this.height = 42
         this.x = width / 2 - this.width / 2
         this.y = height / 2 - this.height / 2
+
+        this.bird = game.playerImage.straight
+
+        setTimeout(() => {
+            this.bird = game.playerImage.down
+        }, 1000)
     }
 
     draw() {
@@ -16,7 +22,7 @@ class Player {
             this.y = height - this.height - game.groundImage.height
         }
 
-        image(game.playerImage, this.x, this.y, this.width, this.height)
+        image(this.bird, this.x, this.y, this.width, this.height)
 
         if (this.y === height - this.height - game.groundImage.height) {
             game.gameStart = false
@@ -26,5 +32,11 @@ class Player {
 
     jump() {
         this.velocity = -8
+
+        this.bird = game.playerImage.up
+
+        setTimeout(() => {
+            this.bird = game.playerImage.down
+        }, 1000)
     }
 }
