@@ -54,6 +54,9 @@ class Game {
 
         // Starter image
         this.starterImage = loadImage("images/start-screen.png")
+
+        // Logo
+        this.logo = loadImage("images/logo.png")
     }
 
     startScreen() {
@@ -70,7 +73,7 @@ class Game {
             440
         )
 
-        text(highestText, (width - textWidth(highestText)) / 2, 135)
+        text(highestText, (width - textWidth(highestText)) / 2, 220)
 
         image(
             this.playerImage.straight,
@@ -79,6 +82,8 @@ class Game {
             this.player.width,
             this.player.height
         )
+
+        image(this.logo, (width - 250) / 2, 100, 250, 67)
     }
 
     playing() {
