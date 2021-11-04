@@ -57,9 +57,11 @@ class Game {
     }
 
     startScreen() {
+        const highestText = `Highest score: ${this.score.highestPoints}`
+
         this.background.draw()
         this.ground.draw()
-
+        
         image(
             this.starterImage,
             (width - 640) / 2,
@@ -68,7 +70,7 @@ class Game {
             440
         )
 
-        text(this.score.highestPoints, 568, 135)
+        text(highestText, (width - textWidth(highestText)) / 2, 135)
 
         image(
             this.playerImage.straight,

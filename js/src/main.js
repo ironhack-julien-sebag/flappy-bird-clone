@@ -1,6 +1,6 @@
 // Variables
-const gameWidth = 800
-const gameHeight = 600
+let gameWidth = 800
+let gameHeight = 600
 
 const game = new Game()
 
@@ -15,8 +15,9 @@ function setup() {
     createCanvas(gameWidth, gameHeight)
     fill(83, 56, 70)
     rectMode(CENTER)
-    textSize(24)
     textFont(font)
+    textSize(24)
+
     game.setup()
 }
 
