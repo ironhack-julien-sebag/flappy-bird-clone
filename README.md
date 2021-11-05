@@ -1,5 +1,7 @@
 # Clone Flappy bird
 
+Link to the game: [https://ironhack-julien-sebag.github.io/flappy-bird-clone/](https://ironhack-julien-sebag.github.io/flappy-bird-clone/)
+
 ## Features
 
 - Press space to start game
